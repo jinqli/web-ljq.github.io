@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://web-ljq.github.io</id>
     <title>木子李</title>
-    <updated>2021-04-10T12:39:09.663Z</updated>
+    <updated>2021-04-10T13:31:09.143Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://web-ljq.github.io"/>
     <link rel="self" href="https://web-ljq.github.io/atom.xml"/>
@@ -21,14 +21,16 @@
         <content type="html"><![CDATA[<p>一次面试碰到的题，还记得当时一脸懵逼，果然还是代码敲少了。</p>
 <!-- more -->
 <p>如题：</p>
-<pre><code class="language-javaScript">let initialArray = [1，2，3，4,[5,6,7],[8,9,[10,11]]];
+<pre><code class="language-javaScript">let initialArray = [1,2,3,4,[5,6,7],[8,9,[10,11]]];
 let outputArray = [1,2,3,4,5,6,7,8,9,10,11];
 </code></pre>
+<hr>
 <ul>
 <li>第一种：数组自带的方法 Array.flat()</li>
 </ul>
 <pre><code class="language-javaScript">initialArray.flat(Infinity); // 展开无限层，也可以是Number，flat(1)
 </code></pre>
+<hr>
 <ul>
 <li>第二种：通过递归实现（明人不说暗话，我面试的时候也是用的递归，遍历初始数组里面的元素是不是单个元素，若是直接push，不是的话再来一遍</li>
 </ul>
@@ -43,14 +45,50 @@ let outputArray = [1,2,3,4,5,6,7,8,9,10,11];
             emptyArray = emptyArray.concat(myFlat(item));
         } else {
             emptyArray.push(item); // 是单个元素，直接push
-        }
-    })
+        };
+    });
     return emptyArray; // 返回结果
-}
+};
 </code></pre>
+<hr>
 <ul>
-<li>第三种：</li>
+<li>第三种：(toString &amp;&amp; split) 或 (join &amp;&amp; split)</li>
 </ul>
+<pre><code class="language-javaScript">// 调用数组的toString方法和join方法，将数组变为字符串
+// 然后再用split分割还原为数组
+
+function myFlatten_3(initialArray) {
+   return (
+       initialArray
+       // .toString()
+       .join()
+       .split(&quot;,&quot;)
+       .map((item) =&gt; {
+           // return item;
+           // return Number(item);
+           return parseInt(item);
+       })
+   );
+}
+console.log(myFlatten_3());
+</code></pre>
+<hr>
+<ul>
+<li>第四种：扩展运算符</li>
+</ul>
+<pre><code class="language-javaScript">// 利用es6的扩展运算符，对数组进行遍历，只要里面有数组就扩展直到没有为止
+function myFlatten_4(initialArray) {
+  while (initialArray.some((item) =&gt; Array.isArray(item))) {
+    initialArray = [].concat(...initialArray);
+  }
+  return initialArray;
+}
+console.log(myFlatten_4());
+</code></pre>
+<hr>
+<blockquote>
+<p>以上几种是我目前能力能理解的方法了，数组打平肯定还有其他方法，继续加油。</p>
+</blockquote>
 ]]></content>
     </entry>
     <entry>
