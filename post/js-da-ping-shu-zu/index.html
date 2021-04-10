@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>归档 | 木子李</title>
+<title>JS打平数组 | 木子李</title>
 
 <link rel="shortcut icon" href="https://web-ljq.github.io/favicon.ico?v=1618051920231">
 
@@ -33,11 +33,11 @@
 <!--<script src="media/scripts/index.js"></script>-->
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <style>
+    <style>
     /* 导航栏样式 */
     .navbar {
         position: relative;
@@ -198,49 +198,72 @@
         }
     }
 </script>
-        <div class="post-container">
-            <div class="post-detail gt-bg-theme-color-first">
-                <article class="gt-post-content">
-                    <h2 class="post-title">归档</h2>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    JS打平数组
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2021-04-10 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <p>一次面试碰到的题，还记得当时一脸懵逼，果然还是代码敲少了。</p>
+<!-- more -->
+<p>如题：</p>
+<pre><code class="language-javaScript">let initialArray = [1，2，3，4,[5,6,7],[8,9,[10,11]]];
+let outputArray = [1,2,3,4,5,6,7,8,9,10,11];
+</code></pre>
+<ul>
+<li>第一种：数组自带的方法 Array.flat()</li>
+</ul>
+<pre><code class="language-javaScript">initialArray.flat(Infinity); // 展开无限层，也可以是Number，flat(1)
+</code></pre>
+<ul>
+<li>第二种：通过递归实现（明人不说暗话，我面试的时候也是用的递归，遍历初始数组里面的元素是不是单个元素，若是直接push，不是的话再来一遍</li>
+</ul>
+<pre><code class="language-javaScript">function myFlat(arr) {
+    // 定义一个空数组用来放结果
+    let emptyArray = [];
+    arr.map(item =&gt; {
+        // 进行条件判断是不是数组
+        if(Array.isArray(item)){
+            // 是的话就继续调用flat
+            // flat返回的是数组形式，所以需要使用 concat
+            emptyArray = emptyArray.concat(myFlat(item));
+        } else {
+            emptyArray.push(item); // 是单个元素，直接push
+        }
+    })
+    return emptyArray; // 返回结果
+}
+</code></pre>
+<ul>
+<li>第三种：</li>
+</ul>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://web-ljq.github.io/post/dockerkali/" class="post-title gt-a-link">
+                    Docker+Kali
+                </a>
+            </div>
         
 
-<div class="archives-container">
-    
-        <h2 class="year gt-c-cotent-color-first">2021</h2>
         
-            
-                <article class="post">
-                    <a href="https://web-ljq.github.io/post/js-da-ping-shu-zu/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-04-10&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            JS打平数组
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://web-ljq.github.io/post/dockerkali/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-04-09&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Docker+Kali
-                        </div>
-                    </a>
-                </article>
-            
-        
-    
-</div>
 
-        <div class="pagination-container">
-    
-    
-</div>
+        
 
-    </article>
-</div>
-</div>
+        
+
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">剑，最要远离的就是感情</div>
     <div class="social-container">
