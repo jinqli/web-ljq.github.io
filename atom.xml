@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://web-ljq.github.io</id>
     <title>木子李</title>
-    <updated>2021-04-10T14:13:41.305Z</updated>
+    <updated>2021-04-11T04:19:40.224Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://web-ljq.github.io"/>
     <link rel="self" href="https://web-ljq.github.io/atom.xml"/>
@@ -10,6 +10,58 @@
     <logo>https://web-ljq.github.io/images/avatar.png</logo>
     <icon>https://web-ljq.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 木子李</rights>
+    <entry>
+        <title type="html"><![CDATA[web安全学习路线总结-自学篇]]></title>
+        <id>https://web-ljq.github.io/post/web-an-quan-xue-xi-lu-xian-zong-jie-zi-xue-pian/</id>
+        <link href="https://web-ljq.github.io/post/web-an-quan-xue-xi-lu-xian-zong-jie-zi-xue-pian/">
+        </link>
+        <updated>2021-04-11T03:26:44.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>学习web安全（web渗透测试）之前，应该了解什么是web。</p>
+</blockquote>
+<hr>
+<h2 id="细分">细分</h2>
+<ol>
+<li>web前端安全</li>
+<li>web后端安全</li>
+<li>web数据安全</li>
+<li>web通信安全</li>
+<li>web容器安全</li>
+</ol>
+<hr>
+<ul>
+<li>web前端，常指客户端浏览器，<br>
+技术架构：HTML，CSS，JavaScript<br>
+攻击方式：xss，csrf</li>
+</ul>
+<hr>
+<ul>
+<li>web后端，指的是放在服务端用来处理数据逻辑的代码<br>
+可以是不同的编程语言实现：PHP，Python，Java，Go等语言</li>
+</ul>
+<hr>
+<ul>
+<li>web数据：指的是数据库的安全问题<br>
+最常见的是Mysql，Oracle，Redis等数据库（昨晚拿学校官网测试了一下，发现学校官网用的是SQL Server，裂开。。。）</li>
+</ul>
+<hr>
+<ul>
+<li>web通信：有url劫持，和dns劫持等<br>
+这一块需要掌握的是通信协议这些技术，比如http和https，tcp/ip那一家子</li>
+</ul>
+<hr>
+<ul>
+<li>web容器安全：针对一些存放web源代码的一个容器<br>
+比如我自己用的Nginx，还有apache，Tomcat，以及没接触过的IIS（Internet Information Services）</li>
+</ul>
+<hr>
+<h2 id="总结">总结</h2>
+<p>所以说，学习web安全并不是一件轻松的事情，需要涉及到的知识确实比较多，但这些都阻挡不了我进去的决心😂</p>
+<blockquote>
+<p>第一次写，其中肯定会有所不足，待我技术提高之时再来更新此文。</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[JS数组打平]]></title>
         <id>https://web-ljq.github.io/post/js-da-ping-shu-zu/</id>
@@ -90,24 +142,5 @@ console.log(myFlatten_4());
 <p>以上几种是我目前能力能理解的方法了，数组打平肯定还有其他方法，继续加油。</p>
 </blockquote>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Docker+Kali]]></title>
-        <id>https://web-ljq.github.io/post/dockerkali/</id>
-        <link href="https://web-ljq.github.io/post/dockerkali/">
-        </link>
-        <updated>2021-04-09T13:08:34.000Z</updated>
-        <summary type="html"><![CDATA[<h2 id="使用docker学习kali">使用docker学习kali</h2>
-]]></summary>
-        <content type="html"><![CDATA[<h2 id="使用docker学习kali">使用docker学习kali</h2>
-<!-- more -->
-<p>在云服务器上安装docker+kali，然后在本地搭建一系列web渗透环境。</p>
-<pre>
-环境：
-centOS7
-docker
-kali
-...
-</pre>]]></content>
     </entry>
 </feed>
