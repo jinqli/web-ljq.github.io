@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>业务运维面试题 | 木子李</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://web-ljq.github.io/favicon.ico?v=1619316848059">
+<link rel="stylesheet" href="https://web-ljq.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+Qusetion
+
+
+怎么运行一个shell脚本 ？
+[root@localhost ~]#./test.sh
+
+[root@localhost ~]#. ./test.sh
+
+[root@localhost ~]#/bin/bash ...." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://web-ljq.github.io">
+        <img src="https://web-ljq.github.io/images/avatar.png?v=1619316848059" class="site-logo">
+        <h1 class="site-title">木子李</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      剑，最要远离的就是感情
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://web-ljq.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">业务运维面试题</h2>
+            <div class="post-date">2021-04-25</div>
+            
+            <div class="post-content" v-pre>
+              <hr>
+<h3 id="qusetion">Qusetion</h3>
+<ol>
+<li>
+<p>怎么运行一个shell脚本 ？</p>
+<pre><code class="language-sh">[root@localhost ~]#./test.sh
+
+[root@localhost ~]#. ./test.sh
+
+[root@localhost ~]#/bin/bash ./test.sh
+</code></pre>
+</li>
+<li>
+<p>在linux系统中脚本文件一般以什么开头 ？</p>
+<blockquote>
+<p>#!/bin/bash</p>
+</blockquote>
+</li>
+<li>
+<p>磁盘，cpu，内存，服务端口，服务进程的检查命令是什么 ？</p>
+</li>
+</ol>
+<h6 id="磁盘">磁盘</h6>
+<ul>
+<li>df（disk free）</li>
+</ul>
+<h6 id="cpu">cpu</h6>
+<ul>
+<li>cat /proc/cpuinfo</li>
+</ul>
+<h6 id="内存">内存</h6>
+<ul>
+<li>top</li>
+</ul>
+<h6 id="服务端口">服务端口</h6>
+<ul>
+<li>lsof -i:80</li>
+</ul>
+<h6 id="服务进程">服务进程</h6>
+<ul>
+<li></li>
+</ul>
+<ol start="4">
+<li>
+<p>如何创建一个空目录 ？</p>
+<blockquote>
+<p>mkdir 目录名</p>
+<p>mkdir -p 目录名1/目录名2  # 递归创建</p>
+</blockquote>
+</li>
+<li>
+<p>如何创建一个test.txt ？</p>
+<blockquote>
+<p>touch test.txt</p>
+<p>vi test.txt</p>
+<p>vim test.txt</p>
+</blockquote>
+</li>
+<li>
+<p>如何把test.txt文件压缩（打包）为tar格式 ？</p>
+<blockquote>
+<p>tar -cvf test.txt</p>
+</blockquote>
+</li>
+<li>
+<p>如何复制，移动一个文件 ？</p>
+<blockquote>
+<p>复制：cp -r test.txt /home/user/ (-r, 拷贝非空目录要加的选项)</p>
+<p>移动：mv test.txt /home/user/</p>
+<p>重命名：mv test.txt test.sh</p>
+<p>删除：rm -rf test.sh</p>
+</blockquote>
+</li>
+<li>
+<p>请表述如果cmd1成功执行，则执行cmd2命令</p>
+<blockquote>
+<p>cmd1 &amp;&amp; cmd2</p>
+<p>ls &amp;&amp; cd / &amp;&amp; ls -l</p>
+</blockquote>
+</li>
+<li>
+<p>假如需要找出/etc/rsyncd.conf文件属于哪个包，可以执行 ？</p>
+<blockquote>
+<p>rpm -qf /etc/rsyncd.conf (针对centOS的)</p>
+</blockquote>
+</li>
+<li>
+<p>如何查找/tmp 目录下7天前的文件</p>
+<blockquote>
+<p>find /tmp -ctime +7</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="权限问题">权限问题</h4>
+<ol>
+<li>
+<p>如何调整文件权限 ？</p>
+<blockquote>
+<p>chmod xxx 目标文件或目录</p>
+</blockquote>
+</li>
+<li>
+<p>文件权限750表示什么含义 ？</p>
+<blockquote>
+<p>文件拥有者有最高权限（rwx），群组成员只有可读可执行的权限（rx），其他组成员没有任何权限</p>
+</blockquote>
+<p>文件权限分成员为</p>
+<ul>
+<li>文件拥有者</li>
+<li>群组</li>
+<li>其他组</li>
+</ul>
+<p>文件权限分为</p>
+<ul>
+<li>r：read（读）= 4</li>
+<li>w：write（写） = 2</li>
+<li>x： execute（执行） = 1</li>
+</ul>
+</li>
+<li>
+<p>如何调整文件的所有组 ？</p>
+<blockquote>
+<p>chgrp：（change group），主要用于修改文件或目录的所有组</p>
+<pre><code class="language-shell">[root@localhost ~]# chgrp [-R] 所有组 文件或目录
+</code></pre>
+<p>[-R]（递归）选项表示连同子目录中的所有文件都更改，前提是群组名必须真实存在，否则会报错&quot;invaild group name&quot;</p>
+<p>chown：（change owner），主要用于修改文件或目录的所有者，也可以修改文件或目录的所有组，一般用于修改所有者</p>
+<pre><code class="language-shell"># 修改所有者
+[root@localhost ~]# chown [-R] 所有者 文件或目录
+# 同时修改所有者和所有组
+[root@localhost ~]# chown [-R] 所有者:所有组 文件或目录
+# 修改所有组
+[root@localhost ~]# chown :所有组 文件或目录 # 前提是组必须存在
+</code></pre>
+<p>[-R]（递归）选项表示连同子目录中的所有文件都更改</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h4 id="其他问题">其他问题</h4>
+<ol>
+<li>描述一下TCP三次握手的过程</li>
+<li>职业规划</li>
+<li>对运维的理解（优缺点）</li>
+<li>一些基本的运维面试题</li>
+</ol>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://web-ljq.github.io/post/web-an-quan-xue-xi-lu-xian-zong-jie-zi-xue-pian/">
+                  <h3 class="post-title">
+                    web安全学习路线总结-自学篇
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://web-ljq.github.io</id>
     <title>木子李</title>
-    <updated>2021-04-11T04:23:25.451Z</updated>
+    <updated>2021-04-25T02:14:13.563Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://web-ljq.github.io"/>
     <link rel="self" href="https://web-ljq.github.io/atom.xml"/>
@@ -10,6 +10,160 @@
     <logo>https://web-ljq.github.io/images/avatar.png</logo>
     <icon>https://web-ljq.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 木子李</rights>
+    <entry>
+        <title type="html"><![CDATA[业务运维面试题]]></title>
+        <id>https://web-ljq.github.io/post/ye-wu-yun-wei-mian-shi-ti/</id>
+        <link href="https://web-ljq.github.io/post/ye-wu-yun-wei-mian-shi-ti/">
+        </link>
+        <updated>2021-04-25T02:12:27.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<h3 id="qusetion">Qusetion</h3>
+<ol>
+<li>
+<p>怎么运行一个shell脚本 ？</p>
+<pre><code class="language-sh">[root@localhost ~]#./test.sh
+
+[root@localhost ~]#. ./test.sh
+
+[root@localhost ~]#/bin/bash ./test.sh
+</code></pre>
+</li>
+<li>
+<p>在linux系统中脚本文件一般以什么开头 ？</p>
+<blockquote>
+<p>#!/bin/bash</p>
+</blockquote>
+</li>
+<li>
+<p>磁盘，cpu，内存，服务端口，服务进程的检查命令是什么 ？</p>
+</li>
+</ol>
+<h6 id="磁盘">磁盘</h6>
+<ul>
+<li>df（disk free）</li>
+</ul>
+<h6 id="cpu">cpu</h6>
+<ul>
+<li>cat /proc/cpuinfo</li>
+</ul>
+<h6 id="内存">内存</h6>
+<ul>
+<li>top</li>
+</ul>
+<h6 id="服务端口">服务端口</h6>
+<ul>
+<li>lsof -i:80</li>
+</ul>
+<h6 id="服务进程">服务进程</h6>
+<ul>
+<li></li>
+</ul>
+<ol start="4">
+<li>
+<p>如何创建一个空目录 ？</p>
+<blockquote>
+<p>mkdir 目录名</p>
+<p>mkdir -p 目录名1/目录名2  # 递归创建</p>
+</blockquote>
+</li>
+<li>
+<p>如何创建一个test.txt ？</p>
+<blockquote>
+<p>touch test.txt</p>
+<p>vi test.txt</p>
+<p>vim test.txt</p>
+</blockquote>
+</li>
+<li>
+<p>如何把test.txt文件压缩（打包）为tar格式 ？</p>
+<blockquote>
+<p>tar -cvf test.txt</p>
+</blockquote>
+</li>
+<li>
+<p>如何复制，移动一个文件 ？</p>
+<blockquote>
+<p>复制：cp -r test.txt /home/user/ (-r, 拷贝非空目录要加的选项)</p>
+<p>移动：mv test.txt /home/user/</p>
+<p>重命名：mv test.txt test.sh</p>
+<p>删除：rm -rf test.sh</p>
+</blockquote>
+</li>
+<li>
+<p>请表述如果cmd1成功执行，则执行cmd2命令</p>
+<blockquote>
+<p>cmd1 &amp;&amp; cmd2</p>
+<p>ls &amp;&amp; cd / &amp;&amp; ls -l</p>
+</blockquote>
+</li>
+<li>
+<p>假如需要找出/etc/rsyncd.conf文件属于哪个包，可以执行 ？</p>
+<blockquote>
+<p>rpm -qf /etc/rsyncd.conf (针对centOS的)</p>
+</blockquote>
+</li>
+<li>
+<p>如何查找/tmp 目录下7天前的文件</p>
+<blockquote>
+<p>find /tmp -ctime +7</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="权限问题">权限问题</h4>
+<ol>
+<li>
+<p>如何调整文件权限 ？</p>
+<blockquote>
+<p>chmod xxx 目标文件或目录</p>
+</blockquote>
+</li>
+<li>
+<p>文件权限750表示什么含义 ？</p>
+<blockquote>
+<p>文件拥有者有最高权限（rwx），群组成员只有可读可执行的权限（rx），其他组成员没有任何权限</p>
+</blockquote>
+<p>文件权限分成员为</p>
+<ul>
+<li>文件拥有者</li>
+<li>群组</li>
+<li>其他组</li>
+</ul>
+<p>文件权限分为</p>
+<ul>
+<li>r：read（读）= 4</li>
+<li>w：write（写） = 2</li>
+<li>x： execute（执行） = 1</li>
+</ul>
+</li>
+<li>
+<p>如何调整文件的所有组 ？</p>
+<blockquote>
+<p>chgrp：（change group），主要用于修改文件或目录的所有组</p>
+<pre><code class="language-shell">[root@localhost ~]# chgrp [-R] 所有组 文件或目录
+</code></pre>
+<p>[-R]（递归）选项表示连同子目录中的所有文件都更改，前提是群组名必须真实存在，否则会报错&quot;invaild group name&quot;</p>
+<p>chown：（change owner），主要用于修改文件或目录的所有者，也可以修改文件或目录的所有组，一般用于修改所有者</p>
+<pre><code class="language-shell"># 修改所有者
+[root@localhost ~]# chown [-R] 所有者 文件或目录
+# 同时修改所有者和所有组
+[root@localhost ~]# chown [-R] 所有者:所有组 文件或目录
+# 修改所有组
+[root@localhost ~]# chown :所有组 文件或目录 # 前提是组必须存在
+</code></pre>
+<p>[-R]（递归）选项表示连同子目录中的所有文件都更改</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h4 id="其他问题">其他问题</h4>
+<ol>
+<li>描述一下TCP三次握手的过程</li>
+<li>职业规划</li>
+<li>对运维的理解（优缺点）</li>
+<li>一些基本的运维面试题</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[web安全学习路线总结-自学篇]]></title>
         <id>https://web-ljq.github.io/post/web-an-quan-xue-xi-lu-xian-zong-jie-zi-xue-pian/</id>
@@ -138,6 +292,21 @@ console.log(myFlatten_4());
 <blockquote>
 <p>以上几种是我目前能力能理解的方法了，数组打平肯定还有其他方法，继续加油。</p>
 </blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Docker+Kali笔记]]></title>
+        <id>https://web-ljq.github.io/post/dockerkali/</id>
+        <link href="https://web-ljq.github.io/post/dockerkali/">
+        </link>
+        <updated>2021-04-09T13:08:34.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="使用docker学习kali">使用docker学习kali</h2>
+<p>在云服务器上安装docker+kali，然后在本地搭建一系列web渗透环境。</p>
+<p>环境：<br>
+centOS7<br>
+docker<br>
+kali<br>
+...</p>
 ]]></content>
     </entry>
 </feed>
